@@ -27,6 +27,24 @@ class CategoryModel{
         $db->exec($query);
         include "../view/list.php";
     }
+
+    function selectCategory($category_id){
+        require "database.php";
+        $query = "SELECT * FROM categories WHERE id= ".$category_id;
+        $categories = $db-> query($query);
+        $categories = $categories -> fetch();
+        include_once "../view/updateCategory.php";
+    }
+
+    function updateCategory($category_id,$category_name){
+        require "database.php";
+        $query = "UPDATE categories SET name='".$category_name."' WHERE id= ".$category_id;
+//        echo $category_name;
+//        echo $category_id;
+        $db->exec($query);
+        include_once "../view/list.php";
+//            echo $query;
+    }
 }
 
 

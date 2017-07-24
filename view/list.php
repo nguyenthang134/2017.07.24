@@ -28,21 +28,20 @@ $categories = $categoryController->getAll();
             <td></td>
         </tr>
         <?php foreach ($categories as $category): ?>
-            <tr>
-                <td><?php echo $category->id ?></td>
-                <td><?php echo $category->name ?></td>
-                <form action="../controller/categoryController.php" method="get">
-                <td>
-                        <input type="submit" value="Delete" name="delete">
-                        <input type="hidden" value="<?php echo $category->id ?>" name="category_id">
+            <form action="../controller/categoryController.php" method="get">
+                <tr>
+                    <td><?php echo $category->id ?></td>
+                    <td><?php echo $category->name ?></td>
+                    <td>
+                            <input type="submit" value="Delete" name="delete">
+                            <input type="hidden" value="<?php echo $category->id ?>" name="category_id">
 
-                </td>
-                <td>
-                        <input type="submit" value="Update" name="update">
-<!--                        <input type="hidden" value="--><?php //echo $category->id ?><!--" name="category_id">-->
-                </td>
-                </form>
-            </tr>
+                    </td>
+                    <td>
+                            <input type="submit" value="Update" name="update">
+                    </td>
+                </tr>
+            </form>
         <?php endforeach; ?>
     </table>
 </body>
